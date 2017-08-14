@@ -1,11 +1,12 @@
 
-var Library = function(){
+var Library = function(city){
   this.myBookArr = new Array();
+  this.instanceKey = city;
 }; //create constructor
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Library.prototype.myBookArr = [];
+// Library.prototype.myBookArr = [];
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -26,8 +27,10 @@ Library.prototype.removeBookByTitle = function(title){
     if(this.myBookArr[i].title == title){
     this.myBookArr.splice(i,1);
     alert("Book Removed");
+    return true;
     }
   }
+  return false;
 };
 
 Library.prototype.removeBookByAuthor = function(author){
@@ -46,9 +49,9 @@ Library.prototype.getRandomBook = function(){
 
 Library.prototype.getBookByTitle = function(title){
   var nArray = [];
-  var reg = new RegExp(title, "gi");
+  // var reg = new RegExp(title, "gi");
   for(i=0; i < this.myBookArr.length; i++){
-    if(this.myBookArr[i].title.match(reg)){
+    if(this.myBookArr[i].title.toLowerCase().indexOf(title.toLowerCase()) > -1 && title){
       nArray.push(this.myBookArr[i]);
     }
   }
@@ -57,9 +60,9 @@ Library.prototype.getBookByTitle = function(title){
 
 Library.prototype.getBooksByAuthor = function(author){
   var aArray = [];
-  var reg = new RegExp(author, "gi");
+  // var reg = new RegExp(author, "gi");
   for(i=0; i < this.myBookArr.length; i++){
-    if(this.myBookArr[i].author.match(reg)){
+    if(this.myBookArr[i].author.toLowerCase().indexOf(author.toLowerCase()) > -1 && author){
       aArray.push(this.myBookArr[i]);
     }
   }
@@ -95,16 +98,22 @@ Library.prototype.getAuthors = function(){
     for(j=0; j < bookAuthors.length; j++){
       if(this.myBookArr[i].author == bookAuthors[j]){
         break loop;
-        }
+      }
     }
-  bookAuthors.push(this.myBookArr[i].author);
-    }
+    bookAuthors.push(this.myBookArr[i].author);
+  }
   return bookAuthors;
 };
 
 Library.prototype.getRandomAuthorName = function(){
-    return this.myBookArr.length <= 0 ? null : this.myBookArr[Math.floor(Math.random() * this.myBookArr.length)].author;
+  return this.getRandomBook().author;
+
+    // return this.myBookArr.length <= 0 ? null : this.myBookArr[Math.floor(Math.random() * this.myBookArr.length)].author;
 };
+
+Library.prototype.infoSearch = function(){
+
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -128,10 +137,10 @@ window.gBookFive = new Book({title: "Sisterhood of the Traveling Pants", author:
 ////////////////////////////////////////////////////////////////////////////////
 
 
-var gLib = new Library();//create instance
-var aLib = new Library();
+var gLib = new Library("Boulder");//create instance
+var aLib = new Library("Denver");
 
 Library.prototype.storeData = function(){
-  var libJSON = JSON.stringify(gLib.myBookArr);
-  localStorage.setItem("key", libJSON);
+  var libJSON = JSON.stringify(this.myBookArr);
+  localStorage.setItem(this.instanceKey, libJSON);
 };
