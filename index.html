@@ -4,11 +4,48 @@
     <meta charset="utf-8">
     <title>Library</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
   </head>
   <body>
-    <h2>Library Project</h2>
-    
-    <script type="text/javascript" src="app.js"></script>
-    <!-- <script type="text/javascript" src="practice.js"></script> -->
+    <div class="page-background">
+      <input class="my-name"/>
+      <button class="get-my-name">alert my name</button>
+      <nav class="header row">
+        <h2 class="header-title col-md-12">Library Project</h2>
+      </nav>
+      <main class="boxes row">
+        <div class="book-selection jumbotron col-md-7">
+        </div>
+        <div class="empty-space col-md-1">
+        </div>
+        <div class="checkout well col-md-4">
+        </div>
+      </main>
+      <section class="actions row">
+        <div class="action-list btn-group-vertical col-md-12">
+          <button id="add-book-button" type="button" class="btn btn-dark">Add Book</button>
+          <div id="inject-form-one"><input type="text" name="title"/></div>
+          <button id="add-books-button" type="button" class="btn btn-dark">Add Books</button>
+          <div id="inject-form-two"><input type="text" name="title"/></div>
+          <button id="remove-title-button" type="button" class="btn btn-dark">Remove Book by Title</button>
+          <div id="inject-form-three"><input type="text" name="title"/></div>
+          <button id="remove-author-button" type="button" class="btn btn-dark">Remove Books by Author</button>
+          <div id="inject-form-four"><input type="text" name="title"/></div>
+          <button id="get-title-button"type="button" class="btn btn-dark">Get Book by Titles</button>
+          <div id="inject-form-five"><input type="text" name="title"/></div>
+          <button id="get-author-button" type="button" class="btn btn-dark">Get Books by Author</button>
+          <div id="inject-form-six"><input type="text" name="title"/></div>
+          <button id="author-list-button" type="button" class="btn btn-dark">Get List of Authors</button>
+          <div id="inject-form-seven"><input type="text" name="title"/></div>
+          <button id="random-book-button" type="button" class="btn btn-dark">Get Random Book</button>
+          <div id="inject-form-eight"><input type="text" name="title"/></div>
+          <button id="random-author-button" type="button" class="btn btn-dark">Get Random Author</button>
+          <div id="inject-form-nine"><input type="text" name="title"/></div>
+        </div>
+      </section>
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="app.js"></script>
+      <!-- <script type="text/javascript" src="practice.js"></script> -->
+    </div>
   </body>
 </html>
