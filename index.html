@@ -13,8 +13,18 @@
       <nav class="header row">
         <h2 class="header-title col-md-12">Library Project</h2>
       </nav>
+      <div id="result">
+      </div>
       <main class="boxes row">
         <div class="book-selection jumbotron col-md-7">
+          <table id="bookList">
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Number of Pages</th>
+              <th>Publish Date</th>
+            </tr>
+          </table>
         </div>
         <div class="empty-space col-md-1">
         </div>
@@ -22,9 +32,15 @@
         </div>
       </main>
       <section class="actions row">
-        <div class="action-list btn-group-vertical col-md-12">
+        <div id="action-list" class="btn-group-vertical col-md-12">
           <button id="add-book-button" type="button" class="btn btn-dark">Add Book</button>
-          <div id="inject-form-one"><input type="text" name="title"/></div>
+          <div id="inject-form-one">
+            <input type="text" name="title" value="title"/>
+            <input type="text" name="author" value="author"/>
+            <input type="text" name="pages" value="pages"/>
+            <input type="text" name="date" value="publish date"/>
+            <button type="button" class="btn btn-success">Submit</button>
+          </div>
           <button id="add-books-button" type="button" class="btn btn-dark">Add Books</button>
           <div id="inject-form-two"><input type="text" name="title"/></div>
           <button id="remove-title-button" type="button" class="btn btn-dark">Remove Book by Title</button>

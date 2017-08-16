@@ -1,32 +1,35 @@
 
-var Library = function(city){
+var Library = function(){
   this.myBookArr = new Array();
-  this.instanceKey = city;
 }; //create constructor
 
 Library.prototype.init = function(){
   //this.$container = $("myContainer"); cache selectors
   this._bindEvents();
   this._checkLocalStorage();
+
+
 };
+
 
 Library.prototype._bindEvents = function(){
   //this is where all event binding happens
-  console.log($("button.add-book-button"));
   $("button.get-my-name").on("click", $.proxy(this._handleGetMyName, this));
-  $("button#add-book-button").on("click", $.proxy(this.injectFormOne, this));
-  $("button#add-books-button").on("click", $.proxy(this.injectFormTwo, this));
-  $("button#remove-title-button").on("click", $.proxy(this.injectFormThree, this));
-  $("button#remove-author-button").on("click", $.proxy(this.injectFormFour, this));
-  $("button#get-title-button").on("click", $.proxy(this.injectFormFive, this));
-  $("button#get-author-button").on("click", $.proxy(this.injectFormSix, this));
-  $("button#author-list-button").on("click", $.proxy(this.injectFormSeven, this));
-  $("button#random-book-button").on("click", $.proxy(this.injectFormEight, this));
-  $("button#random-author-button").on("click", $.proxy(this.injectFormNine, this));
+  $("#add-book-button").on("click", $.proxy(this.injectFormOne, this));
+  $("#add-books-button").on("click", $.proxy(this.injectFormTwo, this));
+  $("#remove-title-button").on("click", $.proxy(this.injectFormThree, this));
+  $("#remove-author-button").on("click", $.proxy(this.injectFormFour, this));
+  $("#get-title-button").on("click", $.proxy(this.injectFormFive, this));
+  $("#get-author-button").on("click", $.proxy(this.injectFormSix, this));
+  $("#author-list-button").on("click", $.proxy(this.injectFormSeven, this));
+  $("#random-book-button").on("click", $.proxy(this.injectFormEight, this));
+  $("#random-author-button").on("click", $.proxy(this.injectFormNine, this));
 };
 
 Library.prototype._checkLocalStorage = function(){
   //call function to populate book array if local storage has our book array
+  var check = JSON.parse(localStorage.getItem("key")) || storeData();
+  this.myBookArr = check;
 };
 
 Library.prototype._handleGetMyName = function(){
@@ -34,50 +37,67 @@ Library.prototype._handleGetMyName = function(){
   alert(inputVal);
 };
 
+Library.prototype._populateBooks = function(){
+  var bookList = $("#bookList");
+  for(i=0; i < this.myBookArr.length; i++){
+    var newRow = $("<tr>");
+    var putTitle = $("<td>").html(this.myBookArr[i].title);
+    var putAuthor = $("<td>").html(this.myBookArr[i].author);
+    var putPages = $("<td>").html(this.myBookArr[i].numPages);
+    var putDate = $("<td>").html(this.myBookArr[i].pubDate);
+
+    bookList.append(newRow);
+    newRow.append(putTitle);
+    newRow.append(putAuthor);
+    newRow.append(putPages);
+    newRow.append(putDate);
+  }
+};
+
 Library.prototype.injectFormOne = function(){
-  var height = "30px";
-  $("#inject-form-one").height(height).slideDown("slow");
+  var height = "150px";
+  $("#inject-form-one").height(height).slideToggle("slow");
 };
 
-Library.prototype.injectFormTwo = function(){
-  var height = "30px";
-  $("#inject-form-two").height(height).slideDown("slow");
-};
-
-Library.prototype.injectFormThree = function(){
-  var height = "30px";
-  $("#inject-form-three").height(height).slideDown("slow");
-};
-
-Library.prototype.injectFormFour = function(){
-  var height = "30px";
-  $("#inject-form-four").height(height).slideDown("slow");
-};
-
-Library.prototype.injectFormFive = function(){
-  var height = "30px";
-  $("#inject-form-five").height(height).slideDown("slow");
-};
-
-Library.prototype.injectFormSix = function(){
-  var height = "30px";
-  $("#inject-form-six").height(height).slideDown("slow");
-};
-
-Library.prototype.injectFormSeven = function(){
-  var height = "30px";
-  $("#inject-form-seven").height(height).slideDown("slow");
-};
-
-Library.prototype.injectFormEight = function(){
-  var height = "30px";
-  $("#inject-form-eight").height(height).slideDown("slow");
-};
-
-Library.prototype.injectFormNine = function(){
-  var height = "30px";
-  $("#inject-form-nine").height(height).slideDown("slow");
-};
+// Library.prototype.injectFormTwo = function(){
+//   var height = "30px";
+//   $("#inject-form-two").height(height).slideToggle("slow");
+// };
+//
+// Library.prototype.injectFormThree = function(){
+//   var height = "30px";
+//   $("#inject-form-three").height(height).slideToggle("slow");
+// };
+//
+// Library.prototype.injectFormFour = function(){
+//   var height = "30px";
+//   $("#inject-form-four").height(height).slideDown("slow");
+// };
+//
+// Library.prototype.injectFormFive = function(){
+//   var height = "30px";
+//   $("#inject-form-five").height(height).slideDown("slow");
+// };
+//
+// Library.prototype.injectFormSix = function(){
+//   var height = "30px";
+//   $("#inject-form-six").height(height).slideDown("slow");
+// };
+//
+// Library.prototype.injectFormSeven = function(){
+//   var height = "30px";
+//   $("#inject-form-seven").height(height).slideDown("slow");
+// };
+//
+// Library.prototype.injectFormEight = function(){
+//   var height = "30px";
+//   $("#inject-form-eight").height(height).slideDown("slow");
+// };
+//
+// Library.prototype.injectFormNine = function(){
+//   var height = "30px";
+//   $("#inject-form-nine").height(height).slideDown("slow");
+// };
 
 Library.prototype.addBook = function(book){
   for(i=0; i < this.myBookArr.length; i++){
@@ -197,13 +217,6 @@ Library.prototype.getRandomAuthorName = function(){
     // return this.myBookArr.length <= 0 ? null : this.myBookArr[Math.floor(Math.random() * this.myBookArr.length)].author;
 };
 
-Library.prototype.infoSearch = function(){
-
-}
-
-Library.prototype.injectField = function(){
-};
-
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -224,15 +237,13 @@ var Book = function(oArgs){
   window.gBookFive = new Book({title: "Sisterhood of the Traveling Pants", author: "Ann Brashares", numPages: 250, date:"04/17/2003"});
 
 $(function(){
-  window.gLib = new Library("Boulder");
-  window.gLib.init();
-
-  window.aLib = new Library("Denver");
-  window.aLib.init();
+  window.gLib = new Library();
+  window.gLib.init();//calls function
 });
 
 
 Library.prototype.storeData = function(){
+  this.addBooks([gBookOne, gBookTwo, gBookThree, gBookFour, gBookFive]);
   var libJSON = JSON.stringify(this.myBookArr);
-  localStorage.setItem(this.instanceKey, libJSON);
+  localStorage.setItem("key", libJSON);
 };
