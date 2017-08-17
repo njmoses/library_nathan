@@ -7,8 +7,7 @@ Library.prototype.init = function(){
   //this.$container = $("myContainer"); cache selectors
   this._bindEvents();
   this._checkLocalStorage();
-
-
+  this._populateBooks();
 };
 
 
@@ -16,6 +15,7 @@ Library.prototype._bindEvents = function(){
   //this is where all event binding happens
   $("button.get-my-name").on("click", $.proxy(this._handleGetMyName, this));
   $("#add-book-button").on("click", $.proxy(this.injectFormOne, this));
+  $("#submit_one").on("click", $.proxy(this._putBook, this));
   $("#add-books-button").on("click", $.proxy(this.injectFormTwo, this));
   $("#remove-title-button").on("click", $.proxy(this.injectFormThree, this));
   $("#remove-author-button").on("click", $.proxy(this.injectFormFour, this));
@@ -28,7 +28,7 @@ Library.prototype._bindEvents = function(){
 
 Library.prototype._checkLocalStorage = function(){
   //call function to populate book array if local storage has our book array
-  var check = JSON.parse(localStorage.getItem("key")) || storeData();
+  var check = JSON.parse(localStorage.getItem("key")) || this.storeData();
   this.myBookArr = check;
 };
 
@@ -54,20 +54,35 @@ Library.prototype._populateBooks = function(){
   }
 };
 
+Library.prototype._putBook = function(){
+  var bookList = $("#bookList");
+  var newRow = $("<tr>");
+  var putTitle = $("<td>").html($("#titleOne").val());
+  var putAuthor = $("<td>").html($("#authorOne").val());
+  var putPages = $("<td>").html($("#pagesOne").val());
+  var putDate = $("<td>").html($("#dateOne").val());
+
+  bookList.append(newRow);
+  newRow.append(putTitle);
+  newRow.append(putAuthor);
+  newRow.append(putPages);
+  newRow.append(putDate);
+}
+
 Library.prototype.injectFormOne = function(){
   var height = "150px";
   $("#inject-form-one").height(height).slideToggle("slow");
 };
 
-// Library.prototype.injectFormTwo = function(){
-//   var height = "30px";
-//   $("#inject-form-two").height(height).slideToggle("slow");
-// };
-//
-// Library.prototype.injectFormThree = function(){
-//   var height = "30px";
-//   $("#inject-form-three").height(height).slideToggle("slow");
-// };
+Library.prototype.injectFormTwo = function(){
+  var height = "30px";
+  $("#inject-form-two").height(height).slideToggle("slow");
+};
+
+Library.prototype.injectFormThree = function(){
+  var height = "30px";
+  $("#inject-form-three").height(height).slideToggle("slow");
+};
 //
 // Library.prototype.injectFormFour = function(){
 //   var height = "30px";

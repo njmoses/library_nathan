@@ -8,10 +8,11 @@
   </head>
   <body>
     <div class="page-background">
-      <input class="my-name"/>
-      <button class="get-my-name">alert my name</button>
-      <nav class="header row">
-        <h2 class="header-title col-md-12">Library Project</h2>
+      <nav class="svg-wrapper">
+        <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+          <rect class="shape" height="60" width="320" />
+        </svg class="row library-title">
+          <div class="text col-md-12">LIBRARY</div>
       </nav>
       <div id="result">
       </div>
@@ -35,11 +36,11 @@
         <div id="action-list" class="btn-group-vertical col-md-12">
           <button id="add-book-button" type="button" class="btn btn-dark">Add Book</button>
           <div id="inject-form-one">
-            <input type="text" name="title" value="title"/>
-            <input type="text" name="author" value="author"/>
-            <input type="text" name="pages" value="pages"/>
-            <input type="text" name="date" value="publish date"/>
-            <button type="button" class="btn btn-success">Submit</button>
+            <input id="titleOne" type="text" name="title" value="title"/>
+            <input id="authorOne" type="text" name="author" value="author"/>
+            <input id="pagesOne" type="text" name="pages" value="pages"/>
+            <input id="dateOne" type="text" name="date" value="publish date"/>
+            <button id="submit_one" type="button" class="btn btn-success">Submit</button>
           </div>
           <button id="add-books-button" type="button" class="btn btn-dark">Add Books</button>
           <div id="inject-form-two"><input type="text" name="title"/></div>
