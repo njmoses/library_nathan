@@ -10,32 +10,26 @@ Library.prototype.init = function(){
   this._populateBooks();
 };
 
+//_____________________________ALL EVENT LISTENERS______________________________
 
 Library.prototype._bindEvents = function(){
   //this is where all event binding happens
   $("button.get-my-name").on("click", $.proxy(this._handleGetMyName, this));
-  $("#add-book-button").on("click", $.proxy(this.injectFormOne, this));
   $("#submit_one").on("click", $.proxy(this._putBook, this));
+  $("#submit_three").on("click", $.proxy(this.removeBookByTitle, this));
+  $("#submit_four").on("click", $.proxy(this.removeBookByAuthor, this));
+  $("#getRandomBook").on("click", $.proxy(this.getRandomBook, this));
+  $("#getRandomAuthor").on("click", $.proxy(this.getRandomAuthorName, this));
+  $("#getAuthorList").on("click", $.proxy(this.getAuthors, this));
+  $("#getBookByTitle").on("click", $.proxy(this.byTitleForm, this));
+  $("#getBookByAuthor").on("click", $.proxy(this.byAuthorForm, this));
+  $("#add-book-button").on("click", $.proxy(this.injectFormOne, this));
   $("#add-books-button").on("click", $.proxy(this.injectFormTwo, this));
   $("#remove-title-button").on("click", $.proxy(this.injectFormThree, this));
   $("#remove-author-button").on("click", $.proxy(this.injectFormFour, this));
-  $("#get-title-button").on("click", $.proxy(this.injectFormFive, this));
-  $("#get-author-button").on("click", $.proxy(this.injectFormSix, this));
-  $("#author-list-button").on("click", $.proxy(this.injectFormSeven, this));
-  $("#random-book-button").on("click", $.proxy(this.injectFormEight, this));
-  $("#random-author-button").on("click", $.proxy(this.injectFormNine, this));
 };
 
-Library.prototype._checkLocalStorage = function(){
-  //call function to populate book array if local storage has our book array
-  var check = JSON.parse(localStorage.getItem("key")) || this.storeData();
-  this.myBookArr = check;
-};
-
-Library.prototype._handleGetMyName = function(){
-  var inputVal = $("input.my-name").val();
-  alert(inputVal);
-};
+//_____________________________POPULATES JUMBOTRON ON PAGE LOAD_________________
 
 Library.prototype._populateBooks = function(){
   var bookList = $("#bookList");
@@ -54,6 +48,10 @@ Library.prototype._populateBooks = function(){
   }
 };
 
+
+
+//_____________________________SHOULD CHANGE THIS ONE___________________________
+
 Library.prototype._putBook = function(){
   var bookList = $("#bookList");
   var newRow = $("<tr>");
@@ -67,7 +65,9 @@ Library.prototype._putBook = function(){
   newRow.append(putAuthor);
   newRow.append(putPages);
   newRow.append(putDate);
-}
+};
+
+//_____________________________TOGGLE FEATURE FOR INPUTS________________________
 
 Library.prototype.injectFormOne = function(){
   var height = "150px";
@@ -80,39 +80,32 @@ Library.prototype.injectFormTwo = function(){
 };
 
 Library.prototype.injectFormThree = function(){
-  var height = "30px";
+  var height = "60px";
   $("#inject-form-three").height(height).slideToggle("slow");
 };
-//
-// Library.prototype.injectFormFour = function(){
-//   var height = "30px";
-//   $("#inject-form-four").height(height).slideDown("slow");
+
+Library.prototype.injectFormFour = function(){
+  var height = "60px";
+  $("#inject-form-four").height(height).slideToggle("slow");
+};
+
+Library.prototype.byTitleForm = function(){
+  var height = "60px";
+  $("#byTitleButton").height(height).slideToggle("slow");
+};
+
+Library.prototype.byAuthorForm = function(){
+  var height = "60px";
+  $("#byAuthorButton").height(height).slideToggle("slow");
+};
+
+//____________________________________EXTRAS____________________________________
+
+// Library.Prototype.emptyJumbo = function(){
+//   $(".book-selection").empty();
 // };
-//
-// Library.prototype.injectFormFive = function(){
-//   var height = "30px";
-//   $("#inject-form-five").height(height).slideDown("slow");
-// };
-//
-// Library.prototype.injectFormSix = function(){
-//   var height = "30px";
-//   $("#inject-form-six").height(height).slideDown("slow");
-// };
-//
-// Library.prototype.injectFormSeven = function(){
-//   var height = "30px";
-//   $("#inject-form-seven").height(height).slideDown("slow");
-// };
-//
-// Library.prototype.injectFormEight = function(){
-//   var height = "30px";
-//   $("#inject-form-eight").height(height).slideDown("slow");
-// };
-//
-// Library.prototype.injectFormNine = function(){
-//   var height = "30px";
-//   $("#inject-form-nine").height(height).slideDown("slow");
-// };
+
+//________________________________ARRAY ACTIONS_________________________________
 
 Library.prototype.addBook = function(book){
   for(i=0; i < this.myBookArr.length; i++){
@@ -120,43 +113,37 @@ Library.prototype.addBook = function(book){
       return false;
     }
   }
+  // this.emptyJumbo();
   this.myBookArr.push(book);
+  this.storeData();
+  this.populateBooks();
   return true;
   //return Remove Book ? book[] == book[] : run .addBook //check for dupliactes?
 };
 
-Library.prototype.removeBookByTitle = function(title){
+Library.prototype.removeBookByTitle = function(){
+  var removeValue = $("#titleThree").val();
   for(i=0; i < this.myBookArr.length; i++){
-    if(this.myBookArr[i].title == title){
+    if(this.myBookArr[i].title == removeValue){
     this.myBookArr.splice(i,1);
-    alert("Book Removed");
+    // this.emptyJumbo();
+    this.storeData();
+    this._populateBooks();
     return true;
     }
   }
   return false;
 };
 
-// Library.prototype.removeBookByAuthor = function(author){
-// var bool = false;
-// for(i=0; i < this.myBookArr.length; i++) {
-//   console.log([i]);
-//   if(this.myBookArr[i].author.toLowerCase().indexOf(author.toLowerCase()) > -1 && author){
-//     console.log(author);
-//     console.log(this.myBookArr[i].author);
-//     this.myBookArr.splice(i,1);
-//     alert("Book(s) Removed");
-//     bool = true;
-//     }
-//   }
-//   return bool;
-// };
-
-Library.prototype.removeBookByAuthor = function(author) {
+Library.prototype.removeBookByAuthor = function() {
+var removeAuthor = $("#authorFour").val();
 var bool = false;
-// var reg = new RegExp(author, "gi")
 for(i = 0; i < this.myBookArr.length; i++) {
-  if(this.myBookArr[i].author.toLowerCase().indexOf(author.toLowerCase()) > -1 && author) {
+  if(this.myBookArr[i].author == removeAuthor) {
     this.myBookArr.splice(i,1);
+    // this.emptyJumbo();
+    this.storeData();
+    this._populateBooks();
     bool = true;
     }
   }
@@ -164,8 +151,21 @@ for(i = 0; i < this.myBookArr.length; i++) {
 };
 
 Library.prototype.getRandomBook = function(){
-      var randomBook = Math.floor(Math.random() * this.myBookArr.length);
-      return this.myBookArr.length <= 0 ? null : this.myBookArr[randomBook];
+  var randomBook = this.myBookArr[Math.floor(Math.random() * this.myBookArr.length)];
+  var wellTable = $("#wellTable");
+
+  var newRow = $("<tr>");
+  var putTitle = $("<td>").html(randomBook.title);
+  var putAuthor = $("<td>").html(randomBook.author);
+  var putPages = $("<td>").html(randomBook.numPages);
+  var putDate = $("<td>").html(randomBook.pubDate);
+
+  newRow.append(putTitle);
+  newRow.append(putAuthor);
+  newRow.append(putPages);
+  newRow.append(putDate);
+  wellTable.append(newRow);
+  // return this.myBookArr.length <= 0 ? null : ;
 };
 
 Library.prototype.getBookByTitle = function(title){
@@ -200,17 +200,6 @@ Library.prototype.addBooks = function(multiArray) {
   return num;
 };
 
-// var authors = ["Steven King", "JK Rowling", "Steven King", "JK Rowling"];
-// var result = myBookArr.filter(function(value, index, array){return array.indexOf(value) == index;});
-// document.write(result);
-//
-// Library.prototype.getAuthors = function(author){
-//   var output = Array.prototype.slice.call(author, 0);
-//   return arr.filter(function getAuthors(value){
-//     return output.indexOf(value) < 0
-//   });
-// };
-
 Library.prototype.getAuthors = function(){
   var bookAuthors = [];
   for(i=0; i < this.myBookArr.length; i++)
@@ -223,17 +212,28 @@ Library.prototype.getAuthors = function(){
     }
     bookAuthors.push(this.myBookArr[i].author);
   }
-  return bookAuthors;
+  var wellTable = $("#wellTable");
+  var newRow = $("<tr>");
+  $("#removedRow").remove();
+  newRow.append(bookAuthors);
+  wellTable.append(newRow);
 };
 
 Library.prototype.getRandomAuthorName = function(){
-  return this.getRandomBook().author;
+  var randomAuthor = this.myBookArr[Math.floor(Math.random()*this.myBookArr.length)].author;
+  var wellTable = $("#wellTable");
+  var newRow = $("<tr>");
+  var authorName = $("<td>").html(randomAuthor);
+  $("#removedRow").remove();
+  newRow.append(authorName);
+  wellTable.append(newRow);
+  // return this.getRandomBook().author;
 
     // return this.myBookArr.length <= 0 ? null : this.myBookArr[Math.floor(Math.random() * this.myBookArr.length)].author;
 };
 
 
-////////////////////////////////////////////////////////////////////////////////
+//_____________________________OBJECTS AND CONSTRUCTORS________________________
 
 var Book = function(oArgs){
   this.title = oArgs.title;
@@ -243,22 +243,33 @@ var Book = function(oArgs){
   // this.pubDate = new Date(this.date[], this.date[], this.date[]);
 };//create book object
 
-////////////////////////////////////////////////////////////////////////////////
-
   window.gBookOne = new Book({title: "IT", author: "Steven King", numPages: 390, date: "10/02/2003"});
   window.gBookTwo = new Book({title: "The Shining", author: "Steven King", numPages: 400, date:"10/12/1995"});
   window.gBookThree = new Book({title: "Harry Potter and the Sorcere's Stone", author: "JK Rowling", numPages: 600, date:"03/20/1987"});
   window.gBookFour = new Book({title: "Harry Potter and the Chamber of Secrets", author: "JK Rowling", numPages: 600, date:"03/20/1987"});
   window.gBookFive = new Book({title: "Sisterhood of the Traveling Pants", author: "Ann Brashares", numPages: 250, date:"04/17/2003"});
 
+//________________________________NOT SURE_____________________________________
+
 $(function(){
   window.gLib = new Library();
   window.gLib.init();//calls function
 });
 
+//_____________________________LOCAL STORAGE FUNCTIONS__________________________
+
+Library.prototype._checkLocalStorage = function(){
+  //call function to populate book array if local storage has our book array
+  var check = JSON.parse(localStorage.getItem("key")) || this.setDefaults();
+  this.myBookArr = check;
+};
+
+Library.prototype.setDefaults = function(){
+  this.addBooks([gBookOne, gBookTwo, gBookThree, gBookFour, gBookFive]);
+  this.storeData();
+};
 
 Library.prototype.storeData = function(){
-  this.addBooks([gBookOne, gBookTwo, gBookThree, gBookFour, gBookFive]);
   var libJSON = JSON.stringify(this.myBookArr);
   localStorage.setItem("key", libJSON);
 };

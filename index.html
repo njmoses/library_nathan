@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/bootstrap.css">
   </head>
-  <body>
-    <div class="page-background">
+  <body class=bg>
       <nav class="svg-wrapper">
         <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
           <rect class="shape" height="60" width="320" />
@@ -18,7 +17,7 @@
       </div>
       <main class="boxes row">
         <div class="book-selection jumbotron col-md-7">
-          <table id="bookList">
+          <table id="bookList" class="table-striped">
             <tr>
               <th>Title</th>
               <th>Author</th>
@@ -30,38 +29,65 @@
         <div class="empty-space col-md-1">
         </div>
         <div class="checkout well col-md-4">
+          <button id="getRandomBook" type="button" class="btn btn-primary">Get Random Book</button>
+          <button id="getRandomAuthor" type="button" class="btn btn-primary">Get Random Author</button>
+          <button id="getAuthorList" type="button" class="btn btn-primary">Get Author List</button>
+          <table id="wellTable" class="table table-condensed">
+            <tr id="removedRow">
+              <th>Title</th>
+              <th>Author</th>
+              <th>Number of Pages</th>
+              <th>Publish Date</th>
+            </tr>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button id="getBookByTitle" type="button" class="btn btn-secondary">Get Book by Title</button>
+            <div id="byTitleButton">
+              <input id="byTitleForm" class="form-control" type="text" name="title" value="title"/>
+              <button id="byTitleSubmit" type="button" class="btn btn-success">Submit</button>
+            </div>
+            <button id="getBookByAuthor" type="button" class="btn btn-secondary">Get Book by Author</button>
+            <div id="byAuthorButton">
+              <input id="byAuthorForm" class="form-control" type="text" name="title" value="author"/>
+              <button id="byAuthorSubmit" type="button" class="btn btn-success">Submit</button>
+            </div>
+          </div>
         </div>
       </main>
       <section class="actions row">
         <div id="action-list" class="btn-group-vertical col-md-12">
+
           <button id="add-book-button" type="button" class="btn btn-dark">Add Book</button>
-          <div id="inject-form-one">
+          <div id="inject-form-one" class="row">
             <input id="titleOne" type="text" name="title" value="title"/>
             <input id="authorOne" type="text" name="author" value="author"/>
             <input id="pagesOne" type="text" name="pages" value="pages"/>
             <input id="dateOne" type="text" name="date" value="publish date"/>
-            <button id="submit_one" type="button" class="btn btn-success">Submit</button>
+            <button id="submit_one" class="btn btn-success" type="button">Submit</button>
           </div>
+
           <button id="add-books-button" type="button" class="btn btn-dark">Add Books</button>
           <div id="inject-form-two"><input type="text" name="title"/></div>
+
           <button id="remove-title-button" type="button" class="btn btn-dark">Remove Book by Title</button>
-          <div id="inject-form-three"><input type="text" name="title"/></div>
+          <div id="inject-form-three">
+            <input id="titleThree" type="text" name="title"/>
+            <button id="submit_three" type="button" class="btn btn-success">Submit</button>
+          </div>
+
           <button id="remove-author-button" type="button" class="btn btn-dark">Remove Books by Author</button>
-          <div id="inject-form-four"><input type="text" name="title"/></div>
-          <button id="get-title-button"type="button" class="btn btn-dark">Get Book by Titles</button>
-          <div id="inject-form-five"><input type="text" name="title"/></div>
-          <button id="get-author-button" type="button" class="btn btn-dark">Get Books by Author</button>
-          <div id="inject-form-six"><input type="text" name="title"/></div>
-          <button id="author-list-button" type="button" class="btn btn-dark">Get List of Authors</button>
-          <div id="inject-form-seven"><input type="text" name="title"/></div>
-          <button id="random-book-button" type="button" class="btn btn-dark">Get Random Book</button>
-          <div id="inject-form-eight"><input type="text" name="title"/></div>
-          <button id="random-author-button" type="button" class="btn btn-dark">Get Random Author</button>
-          <div id="inject-form-nine"><input type="text" name="title"/></div>
+          <div id="inject-form-four">
+            <input id="authorFour" type="text" name="title"/>
+            <button id="submit_four" type="button" class="btn btn-success">Submit</button>
+          </div>
+
         </div>
       </section>
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script type="text/javascript" src="app.js"></script>
+      <!-- <script type="text/javascript" src="confetti.js"></script> -->
       <!-- <script type="text/javascript" src="practice.js"></script> -->
     </div>
   </body>

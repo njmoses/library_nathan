@@ -1,9 +1,12 @@
 
 body {
-  background-image: url("../images/library_bg_2.jpg");
-  height: 100%;
+  background-color: #008080 !important;
   text-align: center;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+
 
 tr{
   height:30px;
@@ -74,19 +77,41 @@ tr{
   color:black;
 }
 
-#bookList{
-  width: 100%;
-  border: black solid 2px;
-}
-
 .well{
   min-height: 250px !important;
+}
+
+.checkout button{
+  padding: 1px 6px;
+}
+
+#getBookByTitle{
+  margin-bottom: 40px;
+}
+
+#getBookByAuthor{
+  margin-bottom: 40px;
+}
+
+
+#byTitleButton{
+  display: none;
+  width:200px;
+}
+
+#byAuthorButton{
+  display: none;
+  width:200px;
 }
 
 .actions div{
   align-items: center;
   padding-left: 300px;
   padding-right: 300px;
+}
+
+.actions{
+  margin-bottom: 100px;
 }
 
 #action-list button{
@@ -101,5 +126,13 @@ tr{
 }
 
 #inject-form-one button{
+  height: 35px;
+}
+
+#inject-form-three button{
+  height: 35px;
+}
+
+#inject-form-four button{
   height: 35px;
 }
