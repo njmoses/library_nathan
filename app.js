@@ -26,6 +26,7 @@ Library.prototype._bindEvents = function(){
   $("#add-books-button").on("click", $.proxy(this.injectFormTwo, this));
   $("#remove-title-button").on("click", $.proxy(this.injectFormThree, this));
   $("#remove-author-button").on("click", $.proxy(this.injectFormFour, this));
+  $("#add-another-form").on("click", $.proxy(this.addMoreForms, this));
 };
 
 //_____________________________POPULATES JUMBOTRON ON PAGE LOAD_________________
@@ -74,7 +75,7 @@ Library.prototype.injectFormOne = function(){
 };
 
 Library.prototype.injectFormTwo = function(){
-  var height = "150px";
+  var height = "65px";
   $("#inject-form-two").height(height).slideToggle("slow");
 };
 
@@ -88,11 +89,26 @@ Library.prototype.injectFormFour = function(){
   $("#inject-form-four").height(height).slideToggle("slow");
 };
 
+Library.prototype.addMoreForms = function(){
+  var newFormPlacement = $("add-more-books");
+  var newListItem = $("<li>");
+  var newForm = $('<form class="form-inline row">');
+
+  var titleInput = $('<input id="titleTwo" class="form-control input-spacing" type="text" name="title" value="title"/>');
+  var authorInput = $('<input id="authorTwo" class="form-control input-spacing" type="text" name="author" value="author"/>');
+  var pagesInput = $('<input id="pagesTwo" class="form-control input-spacing" type="text" name="pages" value="pages"/>');
+  var dateInput = $('<input id="dateTwo" class="form-control input-spacing" type="text" name="date" value="publish date"/>');
+
+  newForm.append(titleInput);
+  newForm.append(authorInput);
+  newForm.append(pagesInput);
+  newForm.append(dateInput);
+  newListItem.append(newForm);
+  newFormPlacement.append(newListItem);
+};
+
 //____________________________________EXTRAS____________________________________
 
-// Library.Prototype.emptyJumbo = function(){
-//   $(".book-selection").empty();
-// };
 
 //________________________________ARRAY ACTIONS_________________________________
 
@@ -102,7 +118,6 @@ Library.prototype.addBook = function(book){
     if(this.myBookArr[i].title == book.title){
     }
   }
-  // this.emptyJumbo();
   this.myBookArr.push(book);
   this._storeData();
   this._checkLocalStorage();
@@ -115,7 +130,7 @@ Library.prototype.removeBookByTitle = function(){
   for(i=0; i < this.myBookArr.length; i++){
     if(this.myBookArr[i].title == removeValue){
     this.myBookArr.splice(i,1);
-    // this.emptyJumbo();
+    $("#bookList").empty();
     this._storeData();
     this._populateBooks();
     return true;
@@ -130,7 +145,7 @@ var bool = false;
 for(i = 0; i < this.myBookArr.length; i++) {
   if(this.myBookArr[i].author == removeAuthor) {
     this.myBookArr.splice(i,1);
-    // this.emptyJumbo();
+    $("#bookList").empty();
     this._storeData();
     this._populateBooks();
     bool = true;

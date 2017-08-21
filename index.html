@@ -62,36 +62,30 @@
           </form>
 
           <button id="add-books-button" type="button" class="btn btn-dark">Add Books</button>
-          <form id="inject-form-two" class="form-inline row">
-            <input id="titleTwo" class="form-control input-spacing" type="text" name="title" value="title"/>
-            <input id="authorTwo" class="form-control input-spacing" type="text" name="author" value="author"/>
-            <input id="pagesTwo" class="form-control input-spacing" type="text" name="pages" value="pages"/>
-            <input id="dateTwo" class="form-control input-spacing" type="text" name="date" value="publish date"/>
-            <br>
-            <input id="titleTwo" class="form-control input-spacing" type="text" name="title" value="title"/>
-            <input id="authorTwo" class="form-control input-spacing" type="text" name="author" value="author"/>
-            <input id="pagesTwo" class="form-control input-spacing" type="text" name="pages" value="pages"/>
-            <input id="dateTwo" class="form-control input-spacing" type="text" name="date" value="publish date"/>
-            <br>
-            <input id="titleTwo" class="form-control input-spacing" type="text" name="title" value="title"/>
-            <input id="authorTwo" class="form-control input-spacing" type="text" name="author" value="author"/>
-            <input id="pagesTwo" class="form-control input-spacing" type="text" name="pages" value="pages"/>
-            <input id="dateTwo" class="form-control input-spacing" type="text" name="date" value="publish date"/>
-            <button id="submit_one" class="btn btn-success col-md-4" type="button">Submit</button>
-            <button id="add-more-books" class="btn btn-success col-md-4" type="button">Add More Books</button>
-          </form>
+          <ul id="add-more-books">
+            <li>
+              <form id="inject-form-two" class="form-inline row">
+                <input id="titleTwo" class="col-md-2 form-control input-spacing" type="text" name="title" value="title"/>
+                <input id="authorTwo" class="col-md-2 form-control input-spacing" type="text" name="author" value="author"/>
+                <input id="pagesTwo" class="col-md-2 form-control input-spacing" type="text" name="pages" value="pages"/>
+                <input id="dateTwo" class="col-md-2 form-control input-spacing" type="text" name="date" value="publish date"/>
+                <button id="submit_two" type="button" class="col-md-2 btn btn-success">Submit</button>
+                <button id="add-another-form" type="button" class="col-md-2 btn btn-success">Add Another Book</button>
+              </form>
+            </li>
+          </ul>
 
           <button id="remove-title-button" type="button" class="btn btn-dark">Remove Book by Title</button>
-          <div id="inject-form-three">
-            <input id="titleThree" type="text" name="title"/>
-            <button id="submit_three" type="button" class="btn btn-success">Submit</button>
-          </div>
+          <form id="inject-form-three" class="form-inline row">
+            <input id="titleThree" type="text" name="title" class="form-control" value="title"/>
+            <button id="submit_three" type="button" class="btn btn-success form-control">Submit</button>
+          </form>
 
           <button id="remove-author-button" type="button" class="btn btn-dark">Remove Books by Author</button>
-          <div id="inject-form-four">
-            <input id="authorFour" type="text" name="title"/>
-            <button id="submit_four" type="button" class="btn btn-success">Submit</button>
-          </div>
+          <form id="inject-form-four" class="form-inline row">
+            <input id="authorFour" type="text" name="title" class="form-control" value="author"/>
+            <button id="submit_four" type="button" class="btn btn-success form-control">Submit</button>
+          </form>
 
         </div>
       </section>

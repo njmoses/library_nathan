@@ -4,6 +4,9 @@ body {
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -140,46 +143,41 @@ tr{
   height: 35px;
 }
 
+#inject-form-two input{
+  width: 175px;
+}
+
 #inject-form-three button{
   height: 35px;
+}
+
+#inject-form-three{
+  margin-top: 10px;
+}
+
+#inject-form-four{
+  margin-top: 10px;
 }
 
 #inject-form-four button{
   height: 35px;
 }
 
-/*#titleOne{
-  margin-top: 10px;
-  width:150px;
-}
-
-#authorOne{
-  margin-top: 10px;
-  width:150px;
-}
-
-#pagesOne{
-  margin-top: 10px;
-  width:150px;
-}
-
-#dateOne{
-  margin-top: 10px;
-  width:150px;
-}*/
-
 #submit_one{
   width: 100px;
 }
 
-////////////////////////////////////////////////////////////////////////////////
+#submit_two{
+  width: 100px;
+}
 
-#inject-form-two input{
-  margin-top: 10px;
-  width:150px;
+#add-another-form{
+  width: 150px;
 }
 
 #add-more-books{
-  width: 150px;
-
+  margin: 0 auto;
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
