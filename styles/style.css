@@ -85,23 +85,30 @@ tr{
   padding: 1px 6px;
 }
 
-#getBookByTitle{
+#getTitleButton{
   margin-bottom: 40px;
+  width:150px;
+  margin-left: 10px;
 }
 
-#getBookByAuthor{
+#getAuthorButton{
   margin-bottom: 40px;
+  width:150px;
+  margin-left: 10px;
 }
 
-
-#byTitleButton{
-  display: none;
-  width:200px;
+#byTitleForm{
+  width:250px;
 }
 
-#byAuthorButton{
-  display: none;
-  width:200px;
+#byAuthorForm{
+  width:250px;
+  margin-left: 50px;
+}
+
+#searchTitleAndAuthor{
+  display: block;
+  margin-left: 250px;
 }
 
 .actions div{
@@ -129,10 +136,50 @@ tr{
   height: 35px;
 }
 
+#inject-form-two button{
+  height: 35px;
+}
+
 #inject-form-three button{
   height: 35px;
 }
 
 #inject-form-four button{
   height: 35px;
+}
+
+/*#titleOne{
+  margin-top: 10px;
+  width:150px;
+}
+
+#authorOne{
+  margin-top: 10px;
+  width:150px;
+}
+
+#pagesOne{
+  margin-top: 10px;
+  width:150px;
+}
+
+#dateOne{
+  margin-top: 10px;
+  width:150px;
+}*/
+
+#submit_one{
+  width: 100px;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#inject-form-two input{
+  margin-top: 10px;
+  width:150px;
+}
+
+#add-more-books{
+  width: 150px;
+
 }
