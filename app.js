@@ -24,6 +24,7 @@ Library.prototype._bindEvents = function(){
   $("#getAuthorButton").on("click", $.proxy(this.getBooksByAuthor, this));
   $("#add-book-button").on("click", $.proxy(this.injectFormOne, this));
   $("#add-books-button").on("click", $.proxy(this.injectFormTwo, this));
+  $("#submit_two").on("click", $.proxy(this.addBooksToJumbo, this));
   $("#remove-title-button").on("click", $.proxy(this.injectFormThree, this));
   $("#remove-author-button").on("click", $.proxy(this.injectFormFour, this));
   $("#add-another-form").on("click", $.proxy(this.addMoreForms, this));
@@ -32,7 +33,18 @@ Library.prototype._bindEvents = function(){
 //_____________________________POPULATES JUMBOTRON ON PAGE LOAD_________________
 
 Library.prototype._populateBooks = function(){
-  var bookList = $("#bookList");
+  var bookList = $("<table>");
+  var newHeaderRow = $("<tr>")
+  var newTitleHead = $("<th class='header-padding'>Title</th>");
+  var newAuthorHead = $("<th class='header-padding'>Author</th>");
+  var newPagesHead = $("<th class='header-padding'>Number of Pages</th>");
+  var newDateHead = $("<th class='header-padding'>Publish Date</th>");
+
+  newHeaderRow.append(newTitleHead);
+  newHeaderRow.append(newAuthorHead);
+  newHeaderRow.append(newPagesHead);
+  newHeaderRow.append(newDateHead);
+  bookList.append(newHeaderRow);
   for(i=0; i < this.myBookArr.length; i++){
     var newRow = $("<tr>");
     var putTitle = $("<td>").html(this.myBookArr[i].title);
@@ -40,12 +52,13 @@ Library.prototype._populateBooks = function(){
     var putPages = $("<td>").html(this.myBookArr[i].numPages);
     var putDate = $("<td>").html(this.myBookArr[i].pubDate);
 
-    bookList.append(newRow);
     newRow.append(putTitle);
     newRow.append(putAuthor);
     newRow.append(putPages);
     newRow.append(putDate);
+    bookList.append(newRow);
   }
+  $("#bookList").html(bookList)
 };
 
 
@@ -75,8 +88,8 @@ Library.prototype.injectFormOne = function(){
 };
 
 Library.prototype.injectFormTwo = function(){
-  var height = "65px";
-  $("#inject-form-two").height(height).slideToggle("slow");
+  var height = "200px";
+  $(".add-more-books-toggle").height(height).slideToggle("slow");
 };
 
 Library.prototype.injectFormThree = function(){
@@ -104,6 +117,22 @@ Library.prototype.addMoreForms = function(){
   newForm.append(dateInput);
   newListItem.append(newForm);
   $("#add-more-books").append(newListItem);
+};
+
+Library.prototype.addBooksToJumbo = function(){
+  var newBookArr = [];
+  $("ul.add-more-books li").each(function(){
+    var newBookObj = new buildMultiBook(this);
+    newBookArr.push(newBookObj);
+  });
+  this.addBooks(newBookArr);
+};
+
+var buildMultiBook = function(jLi){
+    this.title = $(jLi).find("input:nth-child(1)").val()
+    this.author = $(jLi).find("input:nth-child(2)").val()
+    this.numPages = $(jLi).find("input:nth-child(3)").val()
+    this.pubDate = $(jLi).find("input:nth-child(4)").val()
 };
 
 //____________________________________EXTRAS____________________________________
@@ -281,7 +310,7 @@ $(function(){
 
 Library.prototype._checkLocalStorage = function(){
   //call function to populate book array if local storage has our book array
-  var check = JSON.parse(localStorage.getItem("key")) || this.setDefaults() && this._storeData();
+  var check = JSON.parse(localStorage.getItem("key")) || this.ifNoStorage();
   this.myBookArr = check;
   this._populateBooks();
 };
@@ -293,4 +322,10 @@ Library.prototype.setDefaults = function(){
 Library.prototype._storeData = function(){
   var libJSON = JSON.stringify(this.myBookArr);
   localStorage.setItem("key", libJSON);
+};
+
+Library.prototype.ifNoStorage = function(){
+  this.setDefaults()
+  this._storeData()
+  return this.myBookArr;
 };

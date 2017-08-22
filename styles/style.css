@@ -124,15 +124,28 @@ tr{
   margin-bottom: 100px;
 }
 
-#action-list button{
+.action-list button{
   height: 50px;
   border: black solid 2px;
   font-family: helvetica;
   font-weight: bold;
 }
 
-#inject-form-one, #inject-form-two, #inject-form-three, #inject-form-four, #inject-form-five, #inject-form-six, #inject-form-seven, #inject-form-eight, #inject-form-nine{
+#inject-form-one, #inject-form-three, #inject-form-four{
   display: none;
+}
+
+.add-more-books-toggle{
+  display:none;
+}
+
+.add-more-books-toggle button{
+  width: 90px;
+  height: 35px;
+}
+
+.add-more-books-toggle input{
+  width: 30px;
 }
 
 #inject-form-one button{
@@ -144,7 +157,8 @@ tr{
 }
 
 #inject-form-two input{
-  width: 175px;
+  width: 150px;
+  display: inline-block;
 }
 
 #inject-form-three button{
@@ -167,9 +181,10 @@ tr{
   width: 100px;
 }
 
-#submit_two{
+/*#submit_two{
   width: 100px;
-}
+  height: 40px;
+}*/
 
 #add-another-form{
   width: 150px;
@@ -178,6 +193,11 @@ tr{
 #add-more-books{
   margin: 0 auto;
 }
+
+.header-padding{
+  padding-left: 40px;
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
