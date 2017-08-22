@@ -90,7 +90,6 @@ Library.prototype.injectFormFour = function(){
 };
 
 Library.prototype.addMoreForms = function(){
-  var newFormPlacement = $("add-more-books");
   var newListItem = $("<li>");
   var newForm = $('<form class="form-inline row">');
 
@@ -104,7 +103,7 @@ Library.prototype.addMoreForms = function(){
   newForm.append(pagesInput);
   newForm.append(dateInput);
   newListItem.append(newForm);
-  newFormPlacement.append(newListItem);
+  $("#add-more-books").append(newListItem);
 };
 
 //____________________________________EXTRAS____________________________________
