@@ -191,6 +191,7 @@ Library.prototype.getRandomBook = function(){
   var putPages = $("<td>").html(randomBook.numPages);
   var putDate = $("<td>").html(randomBook.pubDate);
 
+  $("#wellTable").empty();
   newRow.append(putTitle);
   newRow.append(putAuthor);
   newRow.append(putPages);
@@ -261,7 +262,7 @@ Library.prototype.getAuthors = function(){
   }
   var wellTable = $("#wellTable");
   var newRow = $("<tr>");
-  $("#removedRow").remove();
+  $("#wellTable").empty();
   newRow.append(bookAuthors);
   wellTable.append(newRow);
 };
@@ -271,7 +272,7 @@ Library.prototype.getRandomAuthorName = function(){
   var wellTable = $("#wellTable");
   var newRow = $("<tr>");
   var authorName = $("<td>").html(randomAuthor);
-  $("#removedRow").remove();
+  $("#wellTable").empty();
   newRow.append(authorName);
   wellTable.append(newRow);
   // return this.getRandomBook().author;
