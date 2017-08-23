@@ -17,7 +17,16 @@
       </nav>
 
       <main class="boxes row">
-        <div id="bookList" class="book-selection jumbotron col-md-7">
+        <div class="book-selection jumbotron col-md-7">
+          <table class="table table-condensed">
+            <thead>
+              <th id="titleInfo">Title</th>
+              <th id="authorInfo">Author</th>
+              <th id="pagesInfo">Number of Pages</th>
+              <th id="dateInfo">Publish Date</th>
+            </thead>
+              <tbody id="bookList"><tbody>
+          </table>
         </div>
         <div class="empty-space col-md-1">
         </div>
@@ -26,14 +35,14 @@
           <button id="getRandomAuthor" type="button" class="btn btn-primary">Get Random Author</button>
           <button id="getAuthorList" type="button" class="btn btn-primary">Get Author List</button>
           <table class="table table-condensed">
-            <tr id="removedRow">
+            <thead id="removedRow">
               <th>Title</th>
               <th>Author</th>
               <th>Number of Pages</th>
               <th>Publish Date</th>
-            </tr>
+            </thead>
+            <tbody id="wellTable" class="table table-condensed"></tbody>
           </table>
-          <table id="wellTable" class="table table-condensed"></table>
         </div>
       </main>
       <article id="searchTitleAndAuthor" class="row">

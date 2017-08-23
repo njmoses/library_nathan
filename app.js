@@ -33,32 +33,31 @@ Library.prototype._bindEvents = function(){
 //_____________________________POPULATES JUMBOTRON ON PAGE LOAD_________________
 
 Library.prototype._populateBooks = function(){
-  var bookList = $("<table>");
-  var newHeaderRow = $("<tr>");
-  var newTitleHead = $("<th class='header-padding'>Title</th>");
-  var newAuthorHead = $("<th class='header-padding'>Author</th>");
-  var newPagesHead = $("<th class='header-padding'>Number of Pages</th>");
-  var newDateHead = $("<th class='header-padding'>Publish Date</th>");
-
-  newHeaderRow.append(newTitleHead);
-  newHeaderRow.append(newAuthorHead);
-  newHeaderRow.append(newPagesHead);
-  newHeaderRow.append(newDateHead);
-  bookList.append(newHeaderRow);
+  // var bookList = $("<table>");
+  // var newHeaderRow = $("<tr>");
+  // var newTitleHead = $("<th class='header-padding'>Title</th>");
+  // var newAuthorHead = $("<th class='header-padding'>Author</th>");
+  // var newPagesHead = $("<th class='header-padding'>Number of Pages</th>");
+  // var newDateHead = $("<th class='header-padding'>Publish Date</th>");
+  //
+  // newHeaderRow.append(newTitleHead);
+  // newHeaderRow.append(newAuthorHead);
+  // newHeaderRow.append(newPagesHead);
+  // newHeaderRow.append(newDateHead);
+  // bookList.append(newHeaderRow);
   for(i=0; i < this.myBookArr.length; i++){
     var newRow = $("<tr>");
-    var putTitle = $("<td>").html(this.myBookArr[i].title);
-    var putAuthor = $("<td>").html(this.myBookArr[i].author);
-    var putPages = $("<td>").html(this.myBookArr[i].numPages);
-    var putDate = $("<td>").html(this.myBookArr[i].pubDate);
+    var putTitle = $("<td>").append(this.myBookArr[i].title);
+    var putAuthor = $("<td>").append(this.myBookArr[i].author);
+    var putPages = $("<td>").append(this.myBookArr[i].numPages);
+    var putDate = $("<td>").append(this.myBookArr[i].pubDate);
 
     newRow.append(putTitle);
     newRow.append(putAuthor);
     newRow.append(putPages);
     newRow.append(putDate);
-    bookList.append(newRow);
+    $("#bookList").append(newRow);
   }
-  $("#bookList").html(bookList);
 };
 
 
