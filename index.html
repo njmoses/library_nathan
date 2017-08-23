@@ -43,15 +43,16 @@
             </thead>
             <tbody id="wellTable" class="table table-condensed"></tbody>
           </table>
-          <article id="searchTitleAndAuthor" class="form-inline">
-            <button id="getTitleButton" type="button" class="btn btn-success">Get Book by Title</button>
-            <input id="byTitleForm" class="form-control" type="text" name="title" value="title"/>
-
-            <button id="getAuthorButton" type="button" class="btn btn-success">Get Book by Author</button>
-            <input id="byAuthorForm" class="form-control" type="text" name="title" value="author"/>
-          </article>
         </div>
       </main>
+
+      <form id="searchTitleAndAuthor" class="form-inline row">
+        <button id="getTitleButton" type="button" class="btn btn-success col-md-4">Get Book by Title</button>
+        <input id="byTitleForm" class="form-control col-md-2" type="text" name="title" value="title"/>
+
+        <button id="getAuthorButton" type="button" class="btn btn-success col-md-4">Get Book by Author</button>
+        <input id="byAuthorForm" class="form-control col-md-2" type="text" name="title" value="author"/>
+      </form>
 
       <section class="actions row">
 

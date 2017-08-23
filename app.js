@@ -33,18 +33,7 @@ Library.prototype._bindEvents = function(){
 //_____________________________POPULATES JUMBOTRON ON PAGE LOAD_________________
 
 Library.prototype._populateBooks = function(){
-  // var bookList = $("<table>");
-  // var newHeaderRow = $("<tr>");
-  // var newTitleHead = $("<th class='header-padding'>Title</th>");
-  // var newAuthorHead = $("<th class='header-padding'>Author</th>");
-  // var newPagesHead = $("<th class='header-padding'>Number of Pages</th>");
-  // var newDateHead = $("<th class='header-padding'>Publish Date</th>");
-  //
-  // newHeaderRow.append(newTitleHead);
-  // newHeaderRow.append(newAuthorHead);
-  // newHeaderRow.append(newPagesHead);
-  // newHeaderRow.append(newDateHead);
-  // bookList.append(newHeaderRow);
+  $("#bookList").empty();
   for(i=0; i < this.myBookArr.length; i++){
     var newRow = $("<tr>");
     var putTitle = $("<td>").append(this.myBookArr[i].title);
@@ -146,8 +135,8 @@ Library.prototype.addBook = function(book){
     }
   }
   this.myBookArr.push(book);
- this._storeData();
- this._checkLocalStorage();
+  this._storeData();
+  this._checkLocalStorage();
   bool = true
   //return Remove Book ? book[] == book[] : run .addBook //check for dupliactes?
 };
@@ -155,7 +144,7 @@ Library.prototype.addBook = function(book){
 Library.prototype.removeBookByTitle = function(){
   var removeValue = $("#titleThree").val();
   for(i=0; i < this.myBookArr.length; i++){
-    if(this.myBookArr[i].title == removeValue){
+    if(this.myBookArr[i].title.toLowerCase().indexOf(removeValue.toLowerCase()) > -1){
     this.myBookArr.splice(i,1);
     $("#bookList").empty();
     this._storeData();
@@ -170,14 +159,15 @@ Library.prototype.removeBookByAuthor = function() {
 var removeAuthor = $("#authorFour").val();
 var bool = false;
 for(i = 0; i < this.myBookArr.length; i++) {
-  if(this.myBookArr[i].author == removeAuthor) {
+  if(this.myBookArr[i].author.toLowerCase().indexOf(removeAuthor.toLowerCase()) > -1) {
     this.myBookArr.splice(i,1);
-    $("#bookList").empty();
-    this._storeData();
-    this._populateBooks();
+    i--;
     bool = true;
     }
   }
+  $("#bookList").empty();
+  this._storeData();
+  this._populateBooks();
   return bool;
 };
 
@@ -201,10 +191,9 @@ Library.prototype.getRandomBook = function(){
 
 Library.prototype.getBookByTitle = function(){
   var bookByTitle = $("#byTitleForm").val();
+  $("#wellTable").empty();
   for(i=0; i < this.myBookArr.length; i++){
     if(this.myBookArr[i].title.toLowerCase().indexOf(bookByTitle.toLowerCase()) > -1){
-      var wellTable = $("#wellTable");
-      wellTable.empty();
       var newRow = $("<tr>");
       var putTitle = $("<td>").html(this.myBookArr[i].title);
       var putAuthor = $("<td>").html(this.myBookArr[i].author);
@@ -222,6 +211,7 @@ Library.prototype.getBookByTitle = function(){
 
 Library.prototype.getBooksByAuthor = function(){
   var bookByAuthor = $("#byAuthorForm").val();
+  $("#wellTable").empty();
   for(i=0; i < this.myBookArr.length; i++){
     if(this.myBookArr[i].author.toLowerCase().indexOf(bookByAuthor.toLowerCase()) > -1){
       var wellTable = $("#wellTable");
@@ -258,22 +248,31 @@ Library.prototype.getAuthors = function(){
       }
     }
     bookAuthors.push(this.myBookArr[i].author);
+    $("#wellTable").empty();
+    for(j=0; j < bookAuthors.length; j++){
+      $("#wellTable").append(
+        "<tr>",
+          "<td>"+"</td>",
+          "<td>"+bookAuthors[j]+"</td>",
+          "<td>"+"</td>",
+          "<td>"+"</td>",
+        "</tr>"
+      )
+    }
   }
-  var wellTable = $("#wellTable");
-  var newRow = $("<tr>");
-  $("#wellTable").empty();
-  newRow.append(bookAuthors);
-  wellTable.append(newRow);
 };
 
 Library.prototype.getRandomAuthorName = function(){
   var randomAuthor = this.myBookArr[Math.floor(Math.random()*this.myBookArr.length)].author;
-  var wellTable = $("#wellTable");
-  var newRow = $("<tr>");
-  var authorName = $("<td>").html(randomAuthor);
   $("#wellTable").empty();
-  newRow.append(authorName);
-  wellTable.append(newRow);
+  $("#wellTable").append(
+    "<tr>",
+      "<td>"+"</td>",
+      "<td>"+randomAuthor+"</td>",
+      "<td>"+"</td>",
+      "<td>"+"</td>",
+    "</tr>"
+  )
   // return this.getRandomBook().author;
 
     // return this.myBookArr.length <= 0 ? null : this.myBookArr[Math.floor(Math.random() * this.myBookArr.length)].author;

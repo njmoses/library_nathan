@@ -1,0 +1,17 @@
+The goal for this project was to create a library application in which a user can view and find any book within the library through multiple forms of functionality. In order to achieve this, I created a program using JavaScript and JQuery.  The functions I wrote to carry out tasks upon user interaction were written using a prototyped design pattern in order for multiple different libraries to be compatible with the program.  
+
+An explanation for what each function does is as follows:
+
+Add Books - adds a book to the library.
+Add Books - adds multiple books to the library at the same time.
+Remove Books - removes books from the library.
+Remove By Author - removes books with a specific author.
+Get List of Authors - displays a list of every author featured in the library.
+Get Random Book - displays a random book from the library.
+Get Random Author - displays random author from the library.
+Get Book By Title - displays a book by searching by title.
+Get Book By Author - displays books by searching for a specific author.
+
+Each book within the library is defined by four properties including book title, book author, number of pages, and publish date.  A user is able to interact with the objects in the library by searching by title, searching by author, adding books, removing books, getting a random title suggestion, getting a random author suggestion, and getting a list of every author in the library.  Each of these actions is powered by a function within the program that carries out not only the obvious task, but also updates the library in local storage. The functions also check against each other to prevent a book from being added should it already exist in the library.  It also is not case sensitive and users can search and carry out actions using partial search terms. 
+
+Once the functionality was up and running, I created a front facing interface for users to easily interact with.  This interface built using HTML, CSS, Bootstrap, and limited JavaScript and JQuery.  Using input fields and buttons, a user can interact with the books in the library in all of the way suggested above.  I attempted to keep the design minimal as to keep the user experience enjoyable and stress free.

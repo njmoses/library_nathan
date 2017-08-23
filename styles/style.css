@@ -69,7 +69,8 @@ tr{
 
 }
 
-.jumbotron{
+main .jumbotron{
+  overflow: scroll;
   margin-left: 30px;
   margin-right:10px;
   color:black;
@@ -89,27 +90,31 @@ main .well{
 /*---------------------------by title and by author forms------------------------------------*/
 
 #getTitleButton{
-  margin-top: 10px;
-  width:120px;
-  font-size: 12px;
+  margin-left: 30px;
+  width:150px;
+  font-size: 14px;
 }
 
 #getAuthorButton{
-  margin-top: 10px;
-  width:120px;
-  font-size: 12px;
+  margin-left: 10px;
+  width:150px;
+  font-size: 14px;
 }
 
 #byTitleForm{
+  margin-left: 15px;
+  margin-right:50px;
   width:160px;
 }
 
 #byAuthorForm{
+  margin-left: 15px;
   width:160px;
 }
 
 #searchTitleAndAuthor{
-  margin-top: 100px;
+  margin-top: 20px;
+  margin-left: 300px;
 }
 
 /*---------------------------main toggle section------------------------------------*/
