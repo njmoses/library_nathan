@@ -4,12 +4,12 @@ var Library = function(){
 }; //create constructor
 
 Library.prototype.init = function(){
-  //this.$container = $("myContainer"); cache selectors
+  // this.container = $("myContainer"); cache selectors
   this._checkLocalStorage();
   this._bindEvents();
 };
 
-//_____________________________ALL EVENT LISTENERS______________________________
+// _____________________________ALL EVENT LISTENERS______________________________
 
 Library.prototype._bindEvents = function(){
   //this is where all event binding happens
@@ -34,7 +34,7 @@ Library.prototype._bindEvents = function(){
 
 Library.prototype._populateBooks = function(){
   var bookList = $("<table>");
-  var newHeaderRow = $("<tr>")
+  var newHeaderRow = $("<tr>");
   var newTitleHead = $("<th class='header-padding'>Title</th>");
   var newAuthorHead = $("<th class='header-padding'>Author</th>");
   var newPagesHead = $("<th class='header-padding'>Number of Pages</th>");
@@ -58,7 +58,7 @@ Library.prototype._populateBooks = function(){
     newRow.append(putDate);
     bookList.append(newRow);
   }
-  $("#bookList").html(bookList)
+  $("#bookList").html(bookList);
 };
 
 
@@ -135,11 +135,11 @@ var buildMultiBook = function(jLi){
     this.pubDate = $(jLi).find("input:nth-child(4)").val()
 };
 
-//____________________________________EXTRAS____________________________________
-
-
-//________________________________ARRAY ACTIONS_________________________________
-
+// //____________________________________EXTRAS____________________________________
+//
+//
+// //________________________________ARRAY ACTIONS_________________________________
+//
 Library.prototype.addBook = function(book){
   var bool = false
   for(i=0; i < this.myBookArr.length; i++){
@@ -147,12 +147,12 @@ Library.prototype.addBook = function(book){
     }
   }
   this.myBookArr.push(book);
-  this._storeData();
-  this._checkLocalStorage();
+ this._storeData();
+ this._checkLocalStorage();
   bool = true
   //return Remove Book ? book[] == book[] : run .addBook //check for dupliactes?
 };
-
+//
 Library.prototype.removeBookByTitle = function(){
   var removeValue = $("#titleThree").val();
   for(i=0; i < this.myBookArr.length; i++){
@@ -185,7 +185,6 @@ for(i = 0; i < this.myBookArr.length; i++) {
 Library.prototype.getRandomBook = function(){
   var randomBook = this.myBookArr[Math.floor(Math.random() * this.myBookArr.length)];
   var wellTable = $("#wellTable");
-
   var newRow = $("<tr>");
   var putTitle = $("<td>").html(randomBook.title);
   var putAuthor = $("<td>").html(randomBook.author);
@@ -224,8 +223,6 @@ Library.prototype.getBookByTitle = function(){
 Library.prototype.getBooksByAuthor = function(){
   var bookByAuthor = $("#byAuthorForm").val();
   for(i=0; i < this.myBookArr.length; i++){
-    console.log(this.myBookArr[i].author);
-    console.log(bookByAuthor);
     if(this.myBookArr[i].author.toLowerCase().indexOf(bookByAuthor.toLowerCase()) > -1){
       var wellTable = $("#wellTable");
       var newRow = $("<tr>");
@@ -325,7 +322,7 @@ Library.prototype._storeData = function(){
 };
 
 Library.prototype.ifNoStorage = function(){
-  this.setDefaults()
-  this._storeData()
+  this.setDefaults();
+  this._storeData();
   return this.myBookArr;
 };

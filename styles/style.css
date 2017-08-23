@@ -1,5 +1,5 @@
 
-body div.background{
+body .background{
   background-color: #003434;
   text-align: center;
 }
@@ -19,10 +19,10 @@ tr{
 .svg-wrapper {
   height: 60px;
 	margin: 0 auto;
-  padding-top:60px;
+  padding-top: 60px;
   position: relative;
   top: 50%;
-  /*transform: translateY(-50%);*/
+  transform: translateY(-50%);
   width: 320px;
 }
 
@@ -75,7 +75,7 @@ tr{
 }
 
 .jumbotron{
-  min-height: 250px;
+
   margin-left: 50px;
   margin-right:10px;
   color:black;
