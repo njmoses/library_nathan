@@ -86,10 +86,10 @@ Library.prototype.injectFormOne = function(){
   $("#inject-form-one").height(height).slideToggle("slow");
 };
 
-Library.prototype.injectFormTwo = function(){
-  var height = "200px";
-  $(".add-more-books-toggle").height(height).slideToggle("slow");
-};
+// Library.prototype.injectFormTwo = function(){
+//   var height = "200px";
+//   $(".add-more-books-toggle").height(height).slideToggle("slow");
+// };
 
 Library.prototype.injectFormThree = function(){
   var height = "60px";

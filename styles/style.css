@@ -1,15 +1,15 @@
 
 body .background{
   background-color: #003434;
-  text-align: center;
 }
 
 ul {
   list-style-type: none;
 }
-////////////////////////////////////////////////////////////////////////////////
-
-
+/*---------------------------title styling------------------------------------*/
+.lib-title{
+  text-align: center;
+}
 
 tr{
   height:30px;
@@ -62,67 +62,70 @@ tr{
   animation: 0.5s draw linear forwards;
 }
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-.boxes{
-  padding-left:50px;
-  padding-right: 50px;
-}
+/*---------------------------jumbotron and well------------------------------------*/
 
-.add_book{
-  margin-left: 40px;
-  font-family: helvetica;
-  font-weight: bold;
+.boxes{
+  padding-left:20px;
+
 }
 
 .jumbotron{
-
-  margin-left: 50px;
+  margin-left: 30px;
   margin-right:10px;
   color:black;
 }
 
 main .well{
-  min-height: 235px;
+  height: 300px;
+  min-width: 400px;
 }
+
 
 .checkout button{
   padding: 1px 6px;
+  margin-bottom: 10px;
 }
 
+/*---------------------------by title and by author forms------------------------------------*/
+
 #getTitleButton{
-  margin-bottom: 40px;
-  width:150px;
-  margin-left: 10px;
+  margin-top: 10px;
+  width:120px;
+  font-size: 12px;
 }
 
 #getAuthorButton{
-  margin-bottom: 40px;
-  width:150px;
-  margin-left: 10px;
+  margin-top: 10px;
+  width:120px;
+  font-size: 12px;
 }
 
 #byTitleForm{
-  width:250px;
+  width:160px;
 }
 
 #byAuthorForm{
-  width:250px;
-  margin-left: 50px;
+  width:160px;
 }
 
 #searchTitleAndAuthor{
-  display: block;
-  margin-left: 250px;
+  margin-top: 100px;
 }
+
+/*---------------------------main toggle section------------------------------------*/
 
 .actions div{
   align-items: center;
-  padding-left: 300px;
-  padding-right: 300px;
+  padding-left: 50px;
+  padding-right: 30px;
 }
 
 .actions{
   padding-bottom: 100px;
+}
+
+.action-list{
+  margin-top:20px;
 }
 
 .action-list button{
@@ -136,10 +139,6 @@ main .well{
   display: none;
 }
 
-.add-more-books-toggle{
-  display:none;
-}
-
 .add-more-books-toggle button{
   width: 90px;
   height: 35px;
@@ -151,15 +150,13 @@ main .well{
 
 #inject-form-one button{
   height: 35px;
+  width: 75px;
 }
 
-#inject-form-two button{
-  height: 35px;
-}
-
-#inject-form-two input{
-  width: 150px;
-  display: inline-block;
+#inject-form-one{
+  margin-top:10px;
+  margin-bottom: 10px;
+  margin-left:10px;
 }
 
 #inject-form-three button{
@@ -168,10 +165,12 @@ main .well{
 
 #inject-form-three{
   margin-top: 10px;
+  margin-left: 10px;
 }
 
 #inject-form-four{
   margin-top: 10px;
+  margin-left: 10px;
 }
 
 #inject-form-four button{
@@ -182,23 +181,67 @@ main .well{
   width: 100px;
 }
 
-/*#submit_two{
-  width: 100px;
-  height: 40px;
-}*/
+#remove-author-button{
+  margin-bottom: 10px;
+}
 
-#add-another-form{
-  width: 150px;
+/*---------------------------add multiple books------------------------------------*/
+
+.add-multiple-books{
+  color: white;
+  font-family: 'Roboto Condensed';
+  margin-left: 25px;
 }
 
 #add-more-books{
   margin: 0 auto;
+  padding-bottom:10px;
 }
 
-.header-padding{
-  padding-left: 40px;
+form .input-spacing{
+  width:100px;
 }
 
+#inject-form-two button{
+  height: 35px;
+}
+
+#inject-form-two input{
+  width: 130px;
+}
+
+#titleTwo{
+  margin-top: 20px;
+  text-align: center;
+  width: 130px;
+}
+
+#authorTwo{
+  margin-top: 20px;
+  text-align: center;
+  width: 130px;
+}
+
+#pagesTwo{
+  margin-top: 20px;
+  text-align: center;
+  width:130px;
+}
+
+#dateTwo{
+  margin-top: 20px;
+  text-align: center;
+  width:130px;
+}
+
+#submit_two{
+  margin-left: 25px;
+}
+
+#add-another-form{
+  margin-left: 10px;
+  width: 150px;
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
