@@ -4,7 +4,7 @@ var Library = function(){
 }; //create constructor
 
 ////////////////////////////////////////////////////////////////////////////////
-
+//This is a new comment in the code.
 Library.prototype.myBookArr = [];
 
 
