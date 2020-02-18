@@ -1,0 +1,252 @@
+
+body .background{
+  background-color: #003434;
+}
+
+ul {
+  list-style-type: none;
+}
+/*---------------------------title styling------------------------------------*/
+.lib-title{
+  text-align: center;
+}
+
+tr{
+  height:30px;
+  border: black solid 1px;
+}
+
+.svg-wrapper {
+  height: 60px;
+	margin: 0 auto;
+  padding-top: 60px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+}
+
+.shape {
+  fill: transparent;
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  stroke: #19f6e8;
+}
+
+.text {
+  color: #fff;
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  letter-spacing: 8px;
+  line-height: 32px;
+  position: relative;
+  top: -48px;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+  }
+  100% {
+    stroke-dasharray: 760;
+    stroke-dashoffset: 0;
+    stroke-width: 2px;
+  }
+}
+
+.svg-wrapper:hover .shape {
+  -webkit-animation: 0.5s draw linear forwards;
+  animation: 0.5s draw linear forwards;
+}
+
+/*---------------------------jumbotron and well------------------------------------*/
+
+.boxes{
+  padding-left:20px;
+
+}
+
+main .jumbotron{
+  overflow: scroll;
+  margin-left: 30px;
+  margin-right:10px;
+  color:black;
+}
+
+main .well{
+  height: 300px;
+  min-width: 400px;
+}
+
+
+.checkout button{
+  padding: 1px 6px;
+  margin-bottom: 10px;
+}
+
+/*---------------------------by title and by author forms------------------------------------*/
+
+#getTitleButton{
+  margin-left: 30px;
+  width:150px;
+  font-size: 14px;
+}
+
+#getAuthorButton{
+  margin-left: 10px;
+  width:150px;
+  font-size: 14px;
+}
+
+#byTitleForm{
+  margin-left: 15px;
+  margin-right:50px;
+  width:160px;
+}
+
+#byAuthorForm{
+  margin-left: 15px;
+  width:160px;
+}
+
+#searchTitleAndAuthor{
+  margin-top: 20px;
+  margin-left: 300px;
+}
+
+/*---------------------------main toggle section------------------------------------*/
+
+.actions div{
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 30px;
+}
+
+.actions{
+  padding-bottom: 100px;
+}
+
+.action-list{
+  margin-top:20px;
+}
+
+.action-list button{
+  height: 50px;
+  border: black solid 2px;
+  font-family: helvetica;
+  font-weight: bold;
+}
+
+#inject-form-one, #inject-form-three, #inject-form-four{
+  display: none;
+}
+
+.add-more-books-toggle button{
+  width: 90px;
+  height: 35px;
+}
+
+.add-more-books-toggle input{
+  width: 30px;
+}
+
+#inject-form-one button{
+  height: 35px;
+  width: 75px;
+}
+
+#inject-form-one{
+  margin-top:10px;
+  margin-bottom: 10px;
+  margin-left:10px;
+}
+
+#inject-form-three button{
+  height: 35px;
+}
+
+#inject-form-three{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#inject-form-four{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#inject-form-four button{
+  height: 35px;
+}
+
+#submit_one{
+  width: 100px;
+}
+
+#remove-author-button{
+  margin-bottom: 10px;
+}
+
+/*---------------------------add multiple books------------------------------------*/
+
+.add-multiple-books{
+  color: white;
+  font-family: 'Roboto Condensed';
+  margin-left: 25px;
+}
+
+#add-more-books{
+  margin: 0 auto;
+  padding-bottom:10px;
+}
+
+form .input-spacing{
+  width:100px;
+}
+
+#inject-form-two button{
+  height: 35px;
+}
+
+#inject-form-two input{
+  width: 130px;
+}
+
+#titleTwo{
+  margin-top: 20px;
+  text-align: center;
+  width: 130px;
+}
+
+#authorTwo{
+  margin-top: 20px;
+  text-align: center;
+  width: 130px;
+}
+
+#pagesTwo{
+  margin-top: 20px;
+  text-align: center;
+  width:130px;
+}
+
+#dateTwo{
+  margin-top: 20px;
+  text-align: center;
+  width:130px;
+}
+
+#submit_two{
+  margin-left: 25px;
+}
+
+#add-another-form{
+  margin-left: 10px;
+  width: 150px;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
