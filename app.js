@@ -51,7 +51,7 @@ Library.prototype._populateBooks = function(){
 
 
 
-//_____________________________SHOULD CHANGE THIS ONE___________________________
+//_____________________________SHOULD CHANGE THIS ONE, but to what?___________________________
 
 Library.prototype._putBook = function(){
   var bookList = $("#bookList");
